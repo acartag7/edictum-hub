@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Review if Claude discovered a CRITICAL learning. Only respond {\"ok\": false} for CRITICAL learnings that would prevent future bugs or save 30+ minutes debugging. Most responses should be {\"ok\": true}.",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
