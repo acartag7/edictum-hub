@@ -17,13 +17,13 @@
 
 :root {
   --background: #0a0a0a;
-  --foreground: #e5e5e5;
+  --foreground: rgba(255, 255, 255, 0.9);
   --accent: #f59e0b;
   --danger: #ff4444;
-  --muted: #888888;
-  --surface: #141414;
-  --surface-hover: #1a1a1a;
-  --border-color: #262626;
+  --muted: rgba(255, 255, 255, 0.35);
+  --surface: #0c0c0c;
+  --surface-hover: #111111;
+  --border-color: rgba(255, 255, 255, 0.06);
   --foreground-secondary: rgb(from var(--foreground) r g b / 0.6);
   --foreground-tertiary: rgb(from var(--foreground) r g b / 0.4);
 }

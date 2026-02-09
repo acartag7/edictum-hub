@@ -35,7 +35,7 @@ export function ContractCard({
   return (
     <Link
       href={`/hub/${slug}`}
-      className="group flex flex-col rounded-lg border border-border bg-surface p-5 transition-all hover:border-accent/30 hover:bg-surface-hover"
+      className="group flex flex-col rounded-lg border border-white/[0.06] bg-[#0c0c0c]/60 p-5 transition-all hover:border-accent/30 hover:bg-[#111111]"
     >
       <div className="mb-3 flex items-start justify-between">
         <div className="flex items-center gap-2">
@@ -55,12 +55,14 @@ export function ContractCard({
         </div>
       </div>
 
-      <h3 className="mb-1 font-mono text-base font-semibold text-foreground group-hover:text-accent transition-colors">
+      <h3 className="mb-1 text-[14px] font-semibold text-white/85 transition-colors group-hover:text-accent">
         {name}
       </h3>
-      <p className="mb-4 line-clamp-2 text-sm text-muted">{description}</p>
+      <p className="mb-4 line-clamp-2 text-[13px] text-white/40">
+        {description}
+      </p>
 
-      <div className="mt-auto flex items-center justify-between text-sm text-muted">
+      <div className="mt-auto flex items-center justify-between text-[13px] text-white/30">
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-1">
             <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
@@ -75,7 +77,7 @@ export function ContractCard({
           {tags.slice(0, 3).map(tag => (
             <span
               key={tag}
-              className="rounded bg-background px-1.5 py-0.5 text-xs text-muted"
+              className="rounded bg-white/[0.04] px-1.5 py-0.5 text-[11px] text-white/30"
             >
               {tag}
             </span>
