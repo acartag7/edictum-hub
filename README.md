@@ -4,12 +4,24 @@ Official website and community contract hub for [Edictum](https://github.com/aca
 
 **Live at [edictum.ai](https://edictum.ai)**
 
+## What is Edictum?
+
+Edictum enforces safety contracts at the tool-call boundary of AI agents. Write declarative YAML contracts that deny dangerous calls before execution, warn on suspicious output after, and cap session usage — all deterministic, no LLM in the loop.
+
+## Features
+
+- **Contract Hub** — Browse, search, download, and rate community YAML contracts
+- **Playground** — Test contracts in your browser with a live Python runtime (Pyodide)
+- **Guides** — Step-by-step learning resources for writing and deploying contracts
+- **Auth** — Sign in with Clerk to submit contracts, rate, and comment
+
 ## Tech Stack
 
 - **Next.js 16** — App Router, React 19, TypeScript
 - **Tailwind CSS 4** — CSS-first configuration, dark theme
 - **Convex** — Real-time backend database
 - **Clerk** — Authentication
+- **Pyodide** — In-browser Python runtime for the playground
 - **Vercel** — Deployment
 
 ## Getting Started
@@ -55,6 +67,7 @@ Official website and community contract hub for [Edictum](https://github.com/aca
    ```
 
 6. Seed the database:
+
    ```bash
    npx convex run seed:seed
    ```
@@ -71,19 +84,33 @@ Official website and community contract hub for [Edictum](https://github.com/aca
 ## Project Structure
 
 ```
-app/                  — Next.js pages (App Router)
-  hub/                — Contract browse/search/detail
-  playground/         — In-browser contract testing (WIP)
-  guides/             — Learning guides
-  about/              — About page
-components/           — Shared React components
-convex/               — Convex schema, functions, seed data
-lib/                  — Utility functions
+app/
+  page.tsx              — Landing page
+  (app)/                — Route group with shared Nav + Footer
+    hub/                — Contract browse, detail, submit, my-contracts
+    playground/         — In-browser contract testing (Pyodide)
+    guides/             — Learning guides
+    about/              — About page
+components/             — Shared React components
+convex/                 — Schema, queries, mutations, seed data
+lib/                    — Utility functions
+```
+
+## Scripts
+
+```bash
+pnpm dev            # Start dev server (Turbopack)
+pnpm build          # Production build
+pnpm lint           # ESLint
+pnpm format         # Prettier
+pnpm typecheck      # TypeScript check
+npx convex dev      # Convex dev server
+npx convex deploy   # Convex production deploy
 ```
 
 ## Deployment
 
-This project deploys to Vercel with the `edictum.ai` domain. Push to `main` to trigger a deployment.
+Deployed to Vercel at `edictum.ai`. Convex backend runs on Convex Cloud.
 
 ## License
 
