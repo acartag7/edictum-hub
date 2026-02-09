@@ -1,27 +1,33 @@
 import Link from 'next/link'
-import { Shield } from 'lucide-react'
+import { EdictumLogo } from '@/components/edictum-logo'
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-surface">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <footer className="border-t border-border">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-2">
-            <Shield className="h-4 w-4 text-accent" />
-            <span className="font-mono text-sm text-muted">
+            <EdictumLogo size={16} className="text-foreground-tertiary" />
+            <span className="text-[12px] text-foreground-tertiary">
               edictum — safety contracts for AI agents
             </span>
           </div>
-          <div className="flex items-center gap-6 text-sm text-muted">
+          <div className="flex items-center gap-5">
             <Link
               href="/hub"
-              className="hover:text-foreground transition-colors"
+              className="text-[12px] text-foreground-tertiary transition-colors hover:text-foreground-secondary"
             >
               Hub
             </Link>
             <Link
+              href="/playground"
+              className="text-[12px] text-foreground-tertiary transition-colors hover:text-foreground-secondary"
+            >
+              Playground
+            </Link>
+            <Link
               href="/guides"
-              className="hover:text-foreground transition-colors"
+              className="text-[12px] text-foreground-tertiary transition-colors hover:text-foreground-secondary"
             >
               Guides
             </Link>
@@ -29,7 +35,7 @@ export function Footer() {
               href="https://github.com/acartag7/edictum"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors"
+              className="text-[12px] text-foreground-tertiary transition-colors hover:text-foreground-secondary"
             >
               GitHub
             </a>
@@ -37,18 +43,18 @@ export function Footer() {
               href="https://pypi.org/project/edictum/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors"
+              className="text-[12px] text-foreground-tertiary transition-colors hover:text-foreground-secondary"
             >
               PyPI
             </a>
           </div>
-          <p className="text-sm text-muted">
+          <p className="text-[12px] text-foreground-tertiary">
             Built by{' '}
             <a
               href="https://github.com/acartag7"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-accent transition-colors"
+              className="text-muted transition-colors hover:text-accent"
             >
               Arnold Cartagena
             </a>

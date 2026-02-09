@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { SignInButton, UserButton, useUser } from '@clerk/nextjs'
 import { cn } from '@/lib/utils'
-import { Shield, Github, ExternalLink } from 'lucide-react'
+import { Github, ExternalLink } from 'lucide-react'
+import { EdictumLogo } from '@/components/edictum-logo'
 
 const links = [
   { href: '/hub', label: 'Hub' },
@@ -28,11 +29,11 @@ export function Nav() {
   const { isSignedIn } = useUser()
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
-          <Shield className="h-6 w-6 text-accent" />
-          <span className="font-mono text-lg font-bold tracking-tight">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+      <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
+        <Link href="/" className="flex items-center gap-2.5">
+          <EdictumLogo size={22} className="text-foreground-secondary" />
+          <span className="text-[15px] font-semibold tracking-tight text-foreground">
             edictum
           </span>
         </Link>
@@ -45,10 +46,10 @@ export function Nav() {
               target={link.external ? '_blank' : undefined}
               rel={link.external ? 'noopener noreferrer' : undefined}
               className={cn(
-                'flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                'flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] font-medium transition-colors',
                 pathname === link.href || pathname?.startsWith(link.href + '/')
                   ? 'text-accent'
-                  : 'text-muted hover:text-foreground'
+                  : 'text-foreground-tertiary hover:text-foreground-secondary'
               )}
             >
               {link.icon && <link.icon className="h-4 w-4" />}
@@ -71,7 +72,7 @@ export function Nav() {
             />
           ) : (
             <SignInButton mode="modal">
-              <button className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-background transition-opacity hover:opacity-90">
+              <button className="rounded-md bg-accent px-4 py-2 text-[13px] font-medium text-black transition-opacity hover:opacity-90">
                 Sign In
               </button>
             </SignInButton>
