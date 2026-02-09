@@ -2,8 +2,6 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import { ConvexClientProvider } from '@/components/convex-provider'
-import { Nav } from '@/components/nav'
-import { Footer } from '@/components/footer'
 import './globals.css'
 
 const geistSans = Geist({
@@ -49,11 +47,62 @@ export default function RootLayout({
     <ClerkProvider
       appearance={{
         variables: {
-          colorPrimary: '#00ff88',
-          colorBackground: '#141414',
+          colorPrimary: '#f59e0b',
+          colorBackground: '#1a1a1a',
           colorText: '#e5e5e5',
-          colorInputBackground: '#1a1a1a',
+          colorTextSecondary: '#a3a3a3',
+          colorInputBackground: '#262626',
           colorInputText: '#e5e5e5',
+          colorNeutral: '#e5e5e5',
+          colorTextOnPrimaryBackground: '#000000',
+          borderRadius: '0.5rem',
+        },
+        elements: {
+          card: {
+            backgroundColor: '#1a1a1a',
+            border: '1px solid rgba(255,255,255,0.1)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
+          },
+          userButtonPopoverCard: {
+            backgroundColor: '#1a1a1a',
+            border: '1px solid rgba(255,255,255,0.1)',
+          },
+          userButtonPopoverActionButton: {
+            color: '#e5e5e5',
+          },
+          userButtonPopoverActionButtonText: {
+            color: '#e5e5e5',
+          },
+          userButtonPopoverActionButtonIcon: {
+            color: '#a3a3a3',
+          },
+          userButtonPopoverFooter: {
+            display: 'none',
+          },
+          userPreviewMainIdentifier: {
+            color: '#e5e5e5',
+          },
+          userPreviewSecondaryIdentifier: {
+            color: '#a3a3a3',
+          },
+          menuButton: {
+            color: '#e5e5e5',
+          },
+          menuItem: {
+            color: '#e5e5e5',
+          },
+          avatarBox: {
+            border: '2px solid rgba(245,158,11,0.3)',
+          },
+          footer: {
+            display: 'none',
+          },
+          footerAction: {
+            display: 'none',
+          },
+          internal: {
+            color: '#e5e5e5',
+          },
         },
       }}
     >
@@ -61,11 +110,7 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans text-foreground antialiased`}
         >
-          <ConvexClientProvider>
-            <Nav />
-            <main className="min-h-[calc(100vh-4rem)]">{children}</main>
-            <Footer />
-          </ConvexClientProvider>
+          <ConvexClientProvider>{children}</ConvexClientProvider>
         </body>
       </html>
     </ClerkProvider>
